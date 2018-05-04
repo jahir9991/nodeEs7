@@ -1,0 +1,1 @@
+export {readSingleUser,readUserList} from './userController'

@@ -1,0 +1,1 @@
+export {initLogPlaceholder} from './helper'

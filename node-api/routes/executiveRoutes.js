@@ -2,9 +2,9 @@ import express from 'express';
 const _routes = express.Router();
 
 
-import {productController as _controller} from "../controllers";
-export const productRoutes = _routes;
-const _api = 'products';
+import {executiveController as _controller} from "../controllers";
+export const executiveRoutes = _routes;
+const _api = 'executives';
 
 
 
@@ -24,7 +24,7 @@ _routes.use([`/${_api}`], (req, res, next) => {
 _routes.route(`/${_api}`).get(_controller.getAll);
 
 
-/*.........FIND ONE  Get /api/v1//id.................... */
+/*.........FIND ONE  Get /api/v1/products/id.................... */
 _routes.route(`/${_api}/:_id`).get(_controller.getOne);
 
 

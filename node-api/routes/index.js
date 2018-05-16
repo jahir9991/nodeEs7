@@ -1,11 +1,6 @@
-import {homeRoutes} from './homeRoutes';
-export const mainRoutes=[homeRoutes];
-
-/*...................................................................*/
-
-import {userRoutes} from './userRoutes';
-import {addressRoutes} from './addressRoutes';
 import {productRoutes} from './productRoutes';
+import {executiveRoutes} from './executiveRoutes';
+import {customerRoutes} from './customerRoutes';
 
 
-export const apiRoutes=[userRoutes,addressRoutes,productRoutes];
+export const apiRoutes = [productRoutes, executiveRoutes,customerRoutes];

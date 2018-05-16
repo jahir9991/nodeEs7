@@ -2,9 +2,9 @@ import express from 'express';
 const _routes = express.Router();
 
 
-import {productController as _controller} from "../controllers";
-export const productRoutes = _routes;
-const _api = 'products';
+import {customerController as _controller} from "../controllers";
+export const customerRoutes = _routes;
+const _api = 'customers';
 
 
 

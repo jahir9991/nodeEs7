@@ -5,12 +5,12 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from "cors";
 
+// import {rethibkConnect,rethibkClose} from './libs'
 
 /*.............code start ...............................*/
 
-import {mainRoutes} from "./routes";
-import {apiRoutes} from "./routes";
 
+import {apiRoutes} from "./routes";
 
 /*............code end.......................................*/
 
@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+// app.use(rethibkConnect);
 
 app.use('/api/v1', (req, res, next) => {
     console.log(`a ${req.method} request in api route.`);
@@ -39,8 +39,9 @@ app.use('/', (req, res, next) => {
     console.log(`a ${req.method} request in main route.`);
     // req.jwt = Auth.getToken(req);
     // req.user = Auth.getUser(req);
-    next();
-}, mainRoutes);
+    res.send('hello please try <a href="/api/v1/products" end >point</a> ')
+    // next();
+});
 
 
 // catch 404 and forward to error handler

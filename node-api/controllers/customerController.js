@@ -4,22 +4,19 @@ import {initLogPlaceholder} from "../libs";
 const getAll = async (req, res, next) => {
 
     try {
-        initLogPlaceholder(req, 'readProductList');
-
+        initLogPlaceholder(req, 'readExecutiveList');
 
         let data = [{}];
-
-
         res.status(200).json({
             success: true,
-            message: 'from  product list ',
+            message: 'from  readExecutiveList list ',
             data
         });
 
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'error from  product list ',
+            message: 'error from  readExecutiveList',
             error
         });
 
@@ -29,21 +26,21 @@ const getAll = async (req, res, next) => {
 
 const getOne = async (req, res, next) => {
     try {
-        initLogPlaceholder(req, 'readSingleProduct');
+        initLogPlaceholder(req, 'readSingleExecutive');
 
         let data = [];
 
 
         res.status(200).json({
             success: true,
-            message: 'from single product of id ' + req.params._id,
+            message: 'from single readSingleExecutive of id ' + req.params._id,
             data
         });
 
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'error from single user of id ' + req.params._id,
+            message: 'error from  readSingleExecutive of id ' + req.params._id,
             error
 
         });
@@ -56,16 +53,16 @@ const getOne = async (req, res, next) => {
 /*.....................post......................................*/
 const create = async (req, res, next) => {
     try {
-        initLogPlaceholder(req, 'createSingleProduct');
+        initLogPlaceholder(req, 'createSingleExecutive');
 
         res.status(200).json({
             success: true,
-            message: 'from  create single user  '
+            message: 'from  createSingleExecutive  '
         });
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'error from  create single user  ',
+            message: 'error from  createSingleExecutive',
             error
         });
     }
@@ -77,16 +74,16 @@ const create = async (req, res, next) => {
 /*.....................edit......................................*/
 const edit = async (req, res, next) => {
     try {
-        initLogPlaceholder(req, 'editSingleProduct');
+        initLogPlaceholder(req, 'editSingleExecutive');
 
         res.status(200).json({
             success: true,
-            message: 'from  edit single user  '
+            message: 'from  edit single Executive  '
         });
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'error from  edit single user  ',
+            message: 'error from  edit single Executive  ',
             error
         });
     }
@@ -98,16 +95,16 @@ const edit = async (req, res, next) => {
 /*.....................delete......................................*/
 const _delete = async (req, res, next) => {
     try {
-        initLogPlaceholder(req, 'deleteSingleProduct');
+        initLogPlaceholder(req, 'deleteSingleExecutive');
 
         res.status(200).json({
             success: true,
-            message: 'from  delete single user  '
+            message: 'from  delete single Executive  '
         });
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'error from  delete single user ',
+            message: 'error from  delete single Executive ',
             error
         });
 
@@ -115,7 +112,7 @@ const _delete = async (req, res, next) => {
 };
 
 
-export const productController = {
+export const customerController = {
     getAll,
     getOne,
     create,

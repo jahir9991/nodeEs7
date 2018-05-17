@@ -14,4 +14,17 @@
 5. Run `> npm start ` to start live  server
 6. go to your browser and hit `localhost:3000` to start live  server
 7. api end point `localhost:3000/api/v1` 
-7. user api  end point `localhost:3000/api/v1/users` 
+8. user api  end point `localhost:3000/api/v1/users` 
+9. set  database cradentian in `libs/mysqlConnect.js` like :
+`const DBOptions = {
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database:'dokan',
+    dialect: 'mysql'
+};`
+
+
+[***] use `localhost:3000/migration` for create table from model   
+
+

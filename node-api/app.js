@@ -4,8 +4,8 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from "cors";
+import {allModel} from "./models";
 
-// import {rethibkConnect,rethibkClose} from './libs'
 
 /*.............code start ...............................*/
 
@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(rethibkConnect);
+
 
 app.use('/api/v1', (req, res, next) => {
     console.log(`a ${req.method} request in api route.`);
@@ -35,12 +35,27 @@ app.use('/api/v1', (req, res, next) => {
 }, apiRoutes);
 
 
+
+
+
 app.use('/', (req, res, next) => {
     console.log(`a ${req.method} request in main route.`);
     // req.jwt = Auth.getToken(req);
     // req.user = Auth.getUser(req);
-    res.send('hello please try <a href="/api/v1/products" end >point</a> ')
-    // next();
+    // res.send('hello please try <a href="/api/v1/products" end >point</a> ')
+    next();
+});
+
+app.use('/migration', (req, res, next) => {
+    console.log(`a ${req.method} request in main route.`);
+    allModel.forEach(element => {
+        element.sync({force:false});
+    });
+    res.json({
+        message:"migrating....."
+    })
+
+
 });
 
 
@@ -57,7 +72,11 @@ app.use((err, req, res, next) => {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    res.status(404).json({
+        success:false,
+        error:'not found',
+        status:404
+    });
 });
 
 

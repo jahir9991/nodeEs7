@@ -1,20 +1,36 @@
-import {initLogPlaceholder} from "../libs";
+import {initLogPlaceholder,pagination} from "../libs";
+import {Product} from '../models'
 
 
 const getAll = async (req, res, next) => {
 
     try {
         initLogPlaceholder(req, 'readProductList');
+        let _pagination=pagination(req.query);
 
+        let where={};
+        if(req.query.name){
+            where.name=req.query.name;
+        }
+        if(req.query.quantity){
+            where.quantity=req.query.quantity;
+        }
 
-        let data = [{}];
+                let data = await Product.findAndCountAll({
+                    where,
+                    limit: _pagination.limit,
+                    offset: _pagination.skip,
+                });
+                res.status(200).json({
+                    success: true,
+                    message: 'from  product list ',
+                    total:data.count,
+                    limit: _pagination.limit || 'all' ,
+                    skip: _pagination.skip,
+                    page: _pagination.page,
+                    data:data.rows
+                });
 
-
-        res.status(200).json({
-            success: true,
-            message: 'from  product list ',
-            data
-        });
 
     } catch (error) {
         res.status(400).json({
@@ -30,20 +46,30 @@ const getAll = async (req, res, next) => {
 const getOne = async (req, res, next) => {
     try {
         initLogPlaceholder(req, 'readSingleProduct');
+      
 
-        let data = [];
+        let where={};
+        where.id=req.params._id;
+
+        if(req.query.name){
+            where.name=req.query.name;
+        }
+        if(req.query.quantity){
+            where.quantity=req.query.quantity;
+        }
 
 
+        let data = await Product.findOne({where});
         res.status(200).json({
             success: true,
-            message: 'from single product of id ' + req.params._id,
+            message: 'from  readSingleProduct  ',
             data
         });
 
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'error from single user of id ' + req.params._id,
+            message: 'error from single product of id ' + req.params._id,
             error
 
         });
@@ -57,15 +83,17 @@ const getOne = async (req, res, next) => {
 const create = async (req, res, next) => {
     try {
         initLogPlaceholder(req, 'createSingleProduct');
+        let data = await Product.create(req.body);
 
         res.status(200).json({
             success: true,
-            message: 'from  create single user  '
+            message: 'from  create single product ',
+            data
         });
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'error from  create single user  ',
+            message: 'error from  create single product  ',
             error
         });
     }
@@ -78,15 +106,28 @@ const create = async (req, res, next) => {
 const edit = async (req, res, next) => {
     try {
         initLogPlaceholder(req, 'editSingleProduct');
+        let data = await Product.update(req.body,{where:{id:req.params._id}});
+        if(data[0]){
 
-        res.status(200).json({
-            success: true,
-            message: 'from  edit single user  '
-        });
+            let data = await Product.findOne({where:{id:req.params._id}});
+            res.status(200).json({
+                success: true,
+                message: 'from  edit single product  ',
+                data
+            });
+        }else{
+            res.status(200).json({
+                success: false,
+                message: 'something went wrong in update single product  ',
+                
+            });
+
+        }
+        
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'error from  edit single user  ',
+            message: 'error from  edit single product  ',
             error
         });
     }
@@ -99,20 +140,26 @@ const edit = async (req, res, next) => {
 const _delete = async (req, res, next) => {
     try {
         initLogPlaceholder(req, 'deleteSingleProduct');
-
+     
+        let data = await Product.destroy({where:{id:req.params._id}});
         res.status(200).json({
             success: true,
-            message: 'from  delete single user  '
+            message: 'from  delete single product  '
         });
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: 'error from  delete single user ',
+            message: 'error from  delete single product ',
             error
         });
 
     }
 };
+
+
+// custom....................................
+
+
 
 
 export const productController = {

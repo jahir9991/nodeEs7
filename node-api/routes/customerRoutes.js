@@ -1,22 +1,23 @@
 import express from 'express';
+import {middlewareLog} from "../libs";
+
 const _routes = express.Router();
 
 
+/*............................START.......................................*/
 import {customerController as _controller} from "../controllers";
+
 export const customerRoutes = _routes;
 const _api = 'customers';
-
-
-
+/*............................END.......................................*/
 
 
 /*REST*/
 _routes.use([`/${_api}`], (req, res, next) => {
 
-    console.log(`a ${req.method} request in ${_api} route.`);
-    console.log('query ========>', req.query);
-    console.log('params =======>', req.params);
-    console.log('body =========>', req.body);
+    middlewareLog(req, _api);
+
+
     next();
 });
 

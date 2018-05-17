@@ -1,4 +1,5 @@
 import express from 'express';
+import {middlewareLog} from "../libs";
 const _routes = express.Router();
 
 
@@ -13,10 +14,7 @@ const _api = 'executives';
 /*REST*/
 _routes.use([`/${_api}`], (req, res, next) => {
 
-    console.log(`a ${req.method} request in ${_api} route.`);
-    console.log('query ========>', req.query);
-    console.log('params =======>', req.params);
-    console.log('body =========>', req.body);
+    middlewareLog(req, _api);
     next();
 });
 

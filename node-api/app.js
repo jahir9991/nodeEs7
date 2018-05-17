@@ -4,12 +4,10 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from "cors";
-import {allModel} from "./models";
 
 
 /*.............code start ...............................*/
-
-
+import {allModel} from "./models";
 import {apiRoutes} from "./routes";
 
 /*............code end.......................................*/
@@ -28,11 +26,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/api/v1', (req, res, next) => {
-    console.log(`a ${req.method} request in api route.`);
+    console.log(`a ${req.method} request in api... route.`);
     // req.jwt = Auth.getToken(req);
     // req.user = Auth.getUser(req);
     next();
-}, apiRoutes);
+},   apiRoutes);
 
 
 

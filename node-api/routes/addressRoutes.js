@@ -1,22 +1,19 @@
 import express from 'express';
+
 const _routes = express.Router();
 
 
 import {addressController as _controller} from "../controllers";
+import {middlewareLog} from "../libs";
+
 export const addressRoutes = _routes;
 const _api = 'addresses';
 
 
-
-
-
 /*REST*/
 _routes.use([`/${_api}`], (req, res, next) => {
+    middlewareLog(req, _api);
 
-    console.log(`a ${req.method} request in ${_api} route.`);
-    console.log('query ========>', req.query);
-    console.log('params =======>', req.params);
-    console.log('body =========>', req.body);
     next();
 });
 

@@ -10,7 +10,7 @@ export const Product = mysqlDb.define('products', {
         primaryKey: true,
         autoIncrement: true
     },
-  
+
     name: {
         type: DataTypes.STRING(255),
         allowNull: false
@@ -20,7 +20,7 @@ export const Product = mysqlDb.define('products', {
         allowNull: false
     },
 
-   
+
     updated_at: {
         type: DataTypes.DATE,
         allowNull: false,
@@ -34,6 +34,7 @@ export const Product = mysqlDb.define('products', {
         type: DataTypes.INTEGER(11),
         allowNull: true
     }
+
 }, {
     tableName: 'products'
 });

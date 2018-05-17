@@ -1,14 +1,23 @@
+export const middlewareLog = (req, _api) => {
+    console.log('>>>>>>>Middleware log START <<<<<<<<<<<');
+    console.log(`a ${req.method} request in ${_api} route.`);
+    console.log('query ========>', req.query);
+    console.log('params =======>', req.params);
+    console.log('body =========>', req.body);
+    console.log('>>>>>>>Middleware log END <<<<<<<<<<<');
 
-    // import * as jwt from "jsonwebtoken";
+};
 
 
-export const initLogPlaceholder= (req,funcName)=>{
+export const initLogPlaceholder = (req, funcName) => {
+    console.log('>>>>>>>Controller log START <<<<<<<<<<<');
     console.log(`call from ${funcName}`);
-    console.log('query ========>',req.query);
-    console.log('params =======>',req.params);
-    console.log('body =========>',req.body);
-    };
+    console.log('query ========>', req.query);
+    console.log('params =======>', req.params);
+    console.log('body =========>', req.body);
+    console.log('>>>>>>>Controller log END <<<<<<<<<<<');
 
+};
 
 
 export const asyncForEach = async (array, callback) => {

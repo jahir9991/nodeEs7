@@ -12,7 +12,6 @@ import {HeaderComponent} from '../@module/@layout/header/header.component';
 import {FooterComponent} from '../@module/@layout/footer/footer.component';
 import {ProductService} from '../@services/product.service';
 import {HttpClientModule} from '@angular/common/http';
-import { MyComponent } from '../@services/my/my.component';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { MyComponent } from '../@services/my/my.component';
     ProductDetailComponent,
     HeaderComponent,
     FooterComponent,
-    MyComponent
   ],
   imports: [
     BrowserModule,

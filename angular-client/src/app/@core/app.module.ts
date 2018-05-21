@@ -12,6 +12,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { ProductService } from "../@services/product.service";
 import { ReactiveFormsModule } from "@angular/forms";
 
+import { PopoverModule } from "ngx-bootstrap";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PopoverModule.forRoot()
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

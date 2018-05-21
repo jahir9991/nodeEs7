@@ -42,8 +42,22 @@
             <td>{{product.quantity}}</td>
             <td>
               <button class="btn btn-info ">details</button>
-              <button class="btn btn-warning ">edit</button>
-              <button class="btn btn-danger ">delete</button>
+              <button class="btn btn-warning  ">edit</button>
+
+              <ng-template #popTemplate>
+                Are You sure To delete?
+                <button class="btn btn-sm btn-danger">ok</button>
+                <button class="btn btn-sm btn-success">cancel</button>
+
+
+
+              </ng-template>
+              <button type="button" class="btn btn-danger" [popover]="popTemplate" popoverTitle="Confirm Delete" [outsideClick]='true'>
+
+
+                TemplateRef binding
+              </button>
+
 
 
             </td>

@@ -1,5 +1,10 @@
-import {initLogPlaceholder, pagination} from "../libs";
-import {Product} from '../models'
+import {
+    initLogPlaceholder,
+    pagination
+} from "../libs";
+import {
+    Product
+} from '../models'
 
 
 const getAll = async (req, res, next) => {
@@ -11,7 +16,7 @@ const getAll = async (req, res, next) => {
         req.query.name ? where.name = req.query.name : '';
         req.query.quantity ? where.quantity = req.query.quantity : '';
 
-        let productList = await  Product.findAndCountAll({
+        let productList = await Product.findAndCountAll({
             where,
             limit: _pagination.limit,
             offset: _pagination.skip,
@@ -55,7 +60,9 @@ const getOne = async (req, res, next) => {
         }
 
 
-        let data = await Product.findOne({where});
+        let data = await Product.findOne({
+            where
+        });
         res.status(200).json({
             success: true,
             message: 'from  readSingleProduct  ',
@@ -102,10 +109,18 @@ const create = async (req, res, next) => {
 const edit = async (req, res, next) => {
     try {
         initLogPlaceholder(req, 'editSingleProduct');
-        let data = await Product.update(req.body, {where: {id: req.params._id}});
+        let data = await Product.update(req.body, {
+            where: {
+                id: req.params._id
+            }
+        });
         if (data[0]) {
 
-            let data = await Product.findOne({where: {id: req.params._id}});
+            let data = await Product.findOne({
+                where: {
+                    id: req.params._id
+                }
+            });
             res.status(200).json({
                 success: true,
                 message: 'from  edit single product  ',
@@ -137,7 +152,11 @@ const _delete = async (req, res, next) => {
     try {
         initLogPlaceholder(req, 'deleteSingleProduct');
 
-        let data = await Product.destroy({where: {id: req.params._id}});
+        let data = await Product.destroy({
+            where: {
+                id: req.params._id
+            }
+        });
         res.status(200).json({
             success: true,
             message: 'from  delete single product  '
@@ -163,5 +182,3 @@ export const productController = {
     edit,
     _delete
 };
-
-

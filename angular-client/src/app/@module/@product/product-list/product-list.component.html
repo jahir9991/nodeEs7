@@ -1,34 +1,62 @@
 <section>
+  <br>
 
-  <table class="table table-striped table-hover ">
-    <thead>
-    <tr>
-      <th>#</th>
-      <th>image</th>
-      <th>name</th>
-      <th>price</th>
-      <th>quantity</th>
-      <th>action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let product of productsData">
-      <td>{{product.id}}</td>
-      <td>{{product.image}}</td>
-      <td>{{product.name}}</td>
-      <td>{{product.price}}</td>
-      <td>{{product.quantity}}</td>
-      <td>
-        <button class="btn btn-info">details</button>
-        <button class="btn btn-warning">edit</button>
-        <button class="btn btn-danger">delete</button>
+  <div class="card bg-light mb-3">
+    <div class=" card-header ">
+      <div class="row">
+        <div class="col-md-10">
+          <h4 class="card-title ">Product List</h4>
 
 
-      </td>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-info align-right" routerLink="/product/create">Add new </button>
 
-    </tr>
-    </tbody>
-  </table>
+
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="card-body ">
+
+
+      <table class="table table-striped table-hover ">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>image</th>
+            <th>name</th>
+            <th>price</th>
+            <th>quantity</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of productsData ">
+            <td>{{product.id}}</td>
+            <td>{{product.image}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            <td>
+              <button class="btn btn-info ">details</button>
+              <button class="btn btn-warning ">edit</button>
+              <button class="btn btn-danger ">delete</button>
+
+
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+
+
 
 
 </section>

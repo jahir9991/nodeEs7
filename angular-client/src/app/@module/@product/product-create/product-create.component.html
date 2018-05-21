@@ -1,3 +1,72 @@
-<p>
-  product-create works!
-</p>
+<section>
+  <br>
+
+  <div class="card bg-light mb-3">
+    <div class=" card-header ">
+      <div class="row">
+        <div class="col-md-10">
+          <h4 class="card-title ">Product Create</h4>
+
+
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-info align-right" routerLink="/product">Product List</button>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="card-body ">
+
+
+      <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+
+
+        <fieldset>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="name">
+
+
+                <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+
+
+
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input formControlName="quantity" type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+
+
+                <small id="quantityHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+
+
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+      </form>
+
+
+    </div>
+  </div>
+
+
+
+
+</section>

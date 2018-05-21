@@ -1,5 +1,9 @@
-import {Sequelize} from 'sequelize';
-import {mysqlDb} from '../libs';
+import {
+    Sequelize
+} from 'sequelize';
+import {
+    mysqlDb
+} from '../libs';
 
 const DataTypes = Sequelize;
 
@@ -38,4 +42,3 @@ export const Product = mysqlDb.define('products', {
 }, {
     tableName: 'products'
 });
-

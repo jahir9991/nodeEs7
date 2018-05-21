@@ -1,10 +1,14 @@
 import express from 'express';
-import {middlewareLog} from "../libs";
+import {
+    middlewareLog
+} from "../libs";
 
 const _routes = express.Router();
 
 
-import {productController as _controller} from "../controllers";
+import {
+    productController as _controller
+} from "../controllers";
 
 export const productRoutes = _routes;
 const _api = 'products';

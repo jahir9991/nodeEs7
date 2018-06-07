@@ -1,0 +1,17 @@
+{
+  "PORT": "3030",
+  "MYSQL": {
+    "HOST": "localhost",
+    "USER": "root",
+    "PASSWORD": "",
+    "DATABASE": "dokan",
+    "DIALECT": "mysql"
+  },
+  "MONGODB": {
+    "HOST": "localhost",
+    "USER": "root",
+    "PASSWORD": "",
+    "DATABASE": "dokan",
+    "DIALECT": "mysql"
+  }
+}

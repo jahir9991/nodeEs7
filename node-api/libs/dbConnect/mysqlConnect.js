@@ -1,23 +1,15 @@
-
+import config from 'config';
 import Sequelize from 'sequelize';
+import {Helper} from '../helper';
 
-console.log('Opening connection to mysql');
-
-
-// const DBOptions = {
-//     host: config.get('MYSQL.HOST'),
-//     user: config.get('MYSQL.USER'),
-//     password: config.get('MYSQL.PASSWORD'),
-//     database: config.get('MYSQL.DATABASE'),
-//     dialect: config.get('MYSQL.DIALECT')
-// };
+Helper.logger.info('Opening connection to mysql');
 
 const DBOptions = {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database:'dokan',
-    dialect: 'mysql'
+    host: config.get('MYSQL.HOST'),
+    user: config.get('MYSQL.USER'),
+    password: config.get('MYSQL.PASSWORD'),
+    database: config.get('MYSQL.DATABASE'),
+    dialect: config.get('MYSQL.DIALECT')
 };
 
 const Op = Sequelize.Op;
@@ -58,14 +50,10 @@ const operatorsAliases = {
     $col: Op.col
 };
 
-
-export const mysqlDb = new Sequelize(DBOptions.database, DBOptions.user, DBOptions.password, {
+export const mysqlConnect = new Sequelize(DBOptions.database, DBOptions.user, DBOptions.password, {
     host: DBOptions.host,
     dialect: DBOptions.dialect,
-    define: {
-        timestamps: false
-    },
-
+    define: {timestamps: false},
 
     pool: {
         max: 5,
@@ -75,4 +63,5 @@ export const mysqlDb = new Sequelize(DBOptions.database, DBOptions.user, DBOptio
     },
     // operatorsAliases: false
     operatorsAliases
+    // dialectOptions: {useUTC: true}
 });

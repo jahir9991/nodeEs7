@@ -1,0 +1,20 @@
+{
+  "PORT": "3000",
+  "MIGRATION": {
+    "token": "mytoken"
+  },
+  "MYSQL": {
+    "HOST": "localhost",
+    "USER": "root",
+    "PASSWORD": "",
+    "DATABASE": "dokan",
+    "DIALECT": "mysql"
+  },
+  "MONGODB": {
+    "HOST": "localhost",
+    "USER": "root",
+    "PASSWORD": "",
+    "DATABASE": "dokan",
+    "DIALECT": "mysql"
+  }
+}

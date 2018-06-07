@@ -1,31 +1,38 @@
-export const middlewareLog = (req, _api) => {
-    console.log('>>>>>>>Middleware log START <<<<<<<<<<<');
-    console.log(`a ${req.method} request in ${_api} route.`);
-    console.log('query ========>', req.query);
-    console.log('params =======>', req.params);
-    console.log('body =========>', req.body);
-    console.log('>>>>>>>Middleware log END <<<<<<<<<<<');
+import {logger} from './logger';
+import {asyncForEach} from './asyncForEach';
+import {pagination} from './pagination';
+import {restApiPlaceHolder} from './restApiPlaceHolder';
+import {
+    indexSuccessPlaceHolder,
+    indexErrorPlaceHolder,
+    showSuccessPlaceHolder,
+    showErrorPlaceHolder,
+    updateSuccessPlaceHolder,
+    updateErrorPlaceHolder,
+    deleteSuccessPlaceHolder,
+    deleteErrorPlaceHolder,
+    initLogPlaceHolder
+} from './logPlaceHolder';
+import {isDefined, baseFilter, getFileName} from './utility';
 
+export const Helper = {
+    logger,
+    asyncForEach,
+    pagination,
+    restApiPlaceHolder,
+    initLogPlaceHolder,
+    indexSuccessPlaceHolder,
+    indexErrorPlaceHolder,
+    showSuccessPlaceHolder,
+    showErrorPlaceHolder,
+    updateSuccessPlaceHolder,
+    updateErrorPlaceHolder,
+    deleteSuccessPlaceHolder,
+    deleteErrorPlaceHolder,
+    isDefined,
+    baseFilter,
+    getFileName
 };
-
-
-export const initLogPlaceholder = (req, funcName) => {
-    console.log('>>>>>>>Controller log START <<<<<<<<<<<');
-    console.log(`call from ${funcName}`);
-    console.log('query ========>', req.query);
-    console.log('params =======>', req.params);
-    console.log('body =========>', req.body);
-    console.log('>>>>>>>Controller log END <<<<<<<<<<<');
-
-};
-
-
-export const asyncForEach = async (array, callback) => {
-    for (let index = 0; index < array.length; index++) {
-        await callback(array[index], index, array)
-    }
-};
-
 
 // export const Auth = {
 //     getToken: (req) => {

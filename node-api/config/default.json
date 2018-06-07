@@ -1,0 +1,22 @@
+{
+  "PORT": "3000",
+  "MIGRATION": {
+    "token": "mytoken"
+  },
+
+  "API": { "PREFIX": "/api/v1" },
+  "MYSQL": {
+    "HOST": "localhost",
+    "USER": "root",
+    "PASSWORD": "",
+    "DATABASE": "nodees7",
+    "DIALECT": "mysql"
+  },
+  "MONGODB": {
+    "HOST": "localhost",
+    "USER": "root",
+    "PASSWORD": "",
+    "DATABASE": "dokan",
+    "DIALECT": "mysql"
+  }
+}

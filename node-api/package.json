@@ -8,18 +8,22 @@
     "prod": "nodemon --exec babel-node ./bin/www"
   },
   "dependencies": {
+    "config": "^1.30.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
+    "moment": "^2.22.2",
+    "mongoose": "^5.1.4",
     "morgan": "~1.9.0",
     "mysql2": "^1.5.3",
     "rethinkdb": "^2.3.3",
     "rethinkdbdash": "^2.3.31",
     "save": "^2.3.2",
-    "sequelize": "^4.37.7"
+    "sequelize": "^4.37.7",
+    "winston": "^2.4.2"
   },
   "devDependencies": {
     "nodemon": "^1.17.3",
